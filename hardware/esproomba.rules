@@ -1,0 +1,119 @@
+
+(rules PCB esproomba
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 113)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.6)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.4)
+    )
+  )
+  (rule
+    (width 150.0)
+    (clear 150.2)
+    (clear 75.0 (type smd_to_turn_gap))
+    (clear 200.2 (type default_Normal))
+    (clear 200.2 (type default_Power))
+    (clear 37.6 (type smd_smd))
+    (clear 200.2 (type smd_Normal))
+    (clear 200.2 (type smd_Power))
+    (clear 200.2 (type "kicad_default"_Normal))
+    (clear 200.2 (type "kicad_default"_Power))
+    (clear 200.2 (type Normal_Normal))
+    (clear 200.2 (type Normal_Power))
+    (clear 200.2 (type Power_Power))
+  )
+  (padstack "Via[0-1]_600:300_um"
+    (shape
+      (circle F.Cu 600.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 600.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_600:300_um" "Via[0-1]_600:300_um" default
+  )
+  (via 
+    "Via[0-1]_600:300_um-kicad_default" "Via[0-1]_600:300_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_600:300_um-Normal" "Via[0-1]_600:300_um" Normal
+  )
+  (via 
+    "Via[0-1]_600:300_um-Power" "Via[0-1]_600:300_um" Power
+  )
+  (via_rule
+    default "Via[0-1]_600:300_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_600:300_um-kicad_default"
+  )
+  (via_rule
+    Normal "Via[0-1]_600:300_um-Normal"
+  )
+  (via_rule
+    Power "Via[0-1]_600:300_um-Power"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 150.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    DGND +3V3 "Net-(C3-Pad1)" "Net-(D1-PadA)" /TX "Net-(D2-PadA)" /DD /RX
+    /BATT /GPIO0 "/CH_PD" /SDA /SCL "Net-(M1-Pad11)" "Net-(M1-Pad10)" /INT2
+    /INT1 "Net-(M1-Pad2)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 150.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class Normal
+    (clearance_class Normal)
+    (via_rule Normal)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class Power
+    (clearance_class Power)
+    (via_rule Power)
+    (rule
+      (width 500.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
