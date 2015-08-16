@@ -1,4 +1,4 @@
-update=Thu 02 Jul 2015 01:19:52 AM CEST
+update=Thu 13 Aug 2015 09:23:39 PM CEST
 version=1
 last_client=kicad
 [pcbnew]
@@ -22,6 +22,9 @@ BoardOutlineThickness=0.100000000000
 ModuleOutlineThickness=0.150000000000
 [general]
 version=1
+[cvpcb]
+version=1
+NetIExt=net
 [eeschema]
 version=1
 LibDir=/home/tralamazza/Projects/kicad-libs
@@ -99,9 +102,7 @@ LibName70=esp8266
 LibName71=accel
 LibName72=ldo
 LibName73=conn-7
-LibName74=conn-5
-LibName75=rogers
-LibName76=v-reg
-[cvpcb]
-version=1
-NetIExt=net
+LibName74=conn-6
+LibName75=conn-5
+LibName76=rogers
+LibName77=v-reg
